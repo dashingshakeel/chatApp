@@ -4,8 +4,8 @@ defmodule Chatto.User do
   schema "users" do
     field :name, :string
     field :username, :string,null: false
-    field :password, :string
-    field :hash_password, :string
+    field :password, :string,virtual: true
+    field :password_hash, :string
 
     timestamps
   end
