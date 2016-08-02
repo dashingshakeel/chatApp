@@ -14,10 +14,10 @@ defmodule Chatto.Router do
   end
 
   scope "/", Chatto do
-    pipe_through :browser # Use the default browser stack
-    get "/users",UserController, :index
-    get "/users/:id", UserController, :show
+    pipe_through :browser # 
     get "/", PageController, :index
+
+    resources "/users", UserController, only: [:index, :show, :new, :create]
   end
 
   # Other scopes may use custom stacks.
