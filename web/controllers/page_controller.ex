@@ -4,4 +4,7 @@ defmodule Chatto.PageController do
   def index(conn, _params) do
     render conn, "index.html"
   end
+  def page(conn,_params)do
+    render conn, "page.html"
+  end
 end

@@ -16,6 +16,7 @@ defmodule Chatto.Router do
 
   scope "/", Chatto do
     pipe_through :browser # 
+    get "/page",PageController,:page
     get "/", PageController, :index
     resources "/sessions", SessionController, only: [:new, :create, :delete]
     resources "/users", UserController, only: [:index, :show, :new, :create]

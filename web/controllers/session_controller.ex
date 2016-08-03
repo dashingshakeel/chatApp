@@ -10,8 +10,8 @@ defmodule Chatto.SessionController do
     case Chatto.Auth.login_by_username_and_pass(conn, user, pass, repo: Repo) do
      {:ok, conn} ->
       conn
-      |> put_flash(:info, "Welcome back!")
-      |> redirect(to: page_path(conn, :index))
+      |> put_flash(:info, "Welcome to Chatt")
+      |> redirect(to: page_path(conn, :page))
      {:error, _reason, conn} ->
       conn
       |> put_flash(:error, "Invalid username/password combination")
@@ -21,6 +21,6 @@ defmodule Chatto.SessionController do
   def delete(conn, _) do
     conn
     |> Chatto.Auth.logout()
-    |> redirect(to: page_path(conn, :index))
+    |> redirect(to: session_path(conn, :new))
   end
 end
