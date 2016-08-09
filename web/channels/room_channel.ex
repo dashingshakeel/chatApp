@@ -9,14 +9,14 @@ defmodule Chatto.RoomChannel do
 
   def handle_in("new_msg", %{"user"=> user,"body" => body}, socket) do
     broadcast! socket, "new_msg", %{user: user ,body: body}
-    {:noreply, socket}
+   {:reply, :ok, socket}
   end
 def handle_out("user_joined", msg, socket) do
   if User.ignoring?(socket.assigns[:user], msg.user_id) do
-    {:noreply, socket}
+    {:reply, :ok, socket}
   else
     push socket, "user_joined", msg
-    {:noreply, socket}
+   {:reply, :ok, socket}
   end
 end
 end
