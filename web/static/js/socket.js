@@ -43,8 +43,7 @@ logger: (kind, msg, data) => { console.log(`${kind}: ${msg}`, data) }
 //     end
 //
 // Finally, pass the token on connect as below. Or remove it
-// from connect if you don't care about authentication.
-let socket=new Socket("/socket")
+
 socket.connect()
 
 // Now that you are connected, you can join channels with a topic:

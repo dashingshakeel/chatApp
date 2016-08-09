@@ -1,4 +1,9 @@
+<%= if !(@current_user) do %>
 <div class="index">
 <div class="navbar-brand"><%= link "Register", to: user_path(@conn, :new) %></div>
 <div class="navbar-brand"><%= link "Log in", to: session_path(@conn, :new) %></div>
 </div>
+<% else %>
+
+<div class="navbar-brand"><%= link "join lobby", to: page_path(@conn, :page) %></div>
+<%end%>
