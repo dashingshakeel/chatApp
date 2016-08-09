@@ -8,3 +8,5 @@
 </div>
 <%= submit "Log in", class: "btn btn-primary" %>
 <% end %>
+
+<div class="navbar-brand"><%= link " New User??? Register", to: user_path(@conn, :new) %></div>
